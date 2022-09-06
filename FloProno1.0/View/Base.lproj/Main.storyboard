@@ -54,7 +54,7 @@
                                             <color key="titleColor" red="0.20020309089999999" green="0.2315155864" blue="0.22352924939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ZPS-ql-3lB" kind="show" id="woV-gr-bor"/>
+                                            <segue destination="ZPS-ql-3lB" kind="presentation" id="c8B-Om-FVs"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already an account ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hZ-v5-NCX">
@@ -70,6 +70,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Rt1-Fh-Pai" kind="show" id="6gp-u8-JBT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -114,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="-418"/>
+            <point key="canvasLocation" x="642" y="-517"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="mUA-yF-JQd">
@@ -253,15 +256,21 @@
                                 <color key="shadowColor" systemColor="labelColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-nr-QUk">
-                                <rect key="frame" x="106.5" y="359" width="162" height="30"/>
+                                <rect key="frame" x="92.5" y="359" width="190" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbp-AR-FhB">
-                                        <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
-                                        <state key="normal" title="J'aime"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="J'aime">
+                                            <color key="titleColor" red="0.89466321469999999" green="0.82369858029999998" blue="0.73733133080000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjh-Og-HEb">
-                                        <rect key="frame" x="81" y="0.0" width="81" height="30"/>
-                                        <state key="normal" title="Commenter"/>
+                                        <rect key="frame" x="95" y="0.0" width="95" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Commenter">
+                                            <color key="titleColor" red="0.89466321469999999" green="0.82369858029999998" blue="0.73733133080000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="iSz-tM-xu8" kind="show" id="tBz-JN-VoP"/>
                                         </connections>
@@ -341,15 +350,15 @@
             </objects>
             <point key="canvasLocation" x="865" y="349"/>
         </scene>
-        <!--View Controller-->
+        <!--Success Register View Controller-->
         <scene sceneID="c8U-hY-kdQ">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ZPS-ql-3lB" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ZPS-ql-3lB" customClass="SuccessRegisterViewController" customModule="FloProno1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="loK-Bo-3sw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball-park-1607855" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-YY-EdQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball-park-1607855" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-YY-EdQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Bet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5R2-Ht-nlH">
@@ -362,18 +371,18 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great, your registration has been validated! You can now log in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-lH-XLn">
                                 <rect key="frame" x="54.5" y="77.5" width="266.5" height="420.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <color key="textColor" red="0.89466321469999999" green="0.82369858029999998" blue="0.73733133080000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.23878550530000001" green="0.27060025929999998" blue="0.26645770670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohb-YF-P7f">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvD-dG-axp">
                                 <rect key="frame" x="62" y="520" width="251" height="35"/>
-                                <color key="backgroundColor" red="0.80785351989999998" green="0.79581093790000001" blue="0.80784559249999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.29064881799999998" green="0.34514653680000001" blue="0.3411773145" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.20020309089999999" green="0.2315155864" blue="0.22352924939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Rt1-Fh-Pai" kind="show" id="nb2-Rw-9N5"/>
+                                    <segue destination="Rt1-Fh-Pai" kind="show" id="doQ-FT-tLg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -387,20 +396,24 @@
                             <constraint firstItem="Z9G-lH-XLn" firstAttribute="centerX" secondItem="loK-Bo-3sw" secondAttribute="centerX" id="8JJ-dd-ErK"/>
                             <constraint firstItem="5R2-Ht-nlH" firstAttribute="top" secondItem="Xdm-rs-VPa" secondAttribute="top" constant="20" id="CZf-IJ-vRr"/>
                             <constraint firstItem="Z9G-lH-XLn" firstAttribute="height" secondItem="LbC-YY-EdQ" secondAttribute="height" multiplier="0.630735" id="Df8-US-hoY"/>
-                            <constraint firstItem="ohb-YF-P7f" firstAttribute="top" secondItem="Z9G-lH-XLn" secondAttribute="bottom" constant="22" id="IER-ie-HR6"/>
                             <constraint firstItem="Z9G-lH-XLn" firstAttribute="top" secondItem="5R2-Ht-nlH" secondAttribute="bottom" constant="25" id="Jrz-90-FO1"/>
                             <constraint firstItem="LbC-YY-EdQ" firstAttribute="bottom" secondItem="Xdm-rs-VPa" secondAttribute="bottom" id="Lha-Dw-o5H"/>
+                            <constraint firstItem="IvD-dG-axp" firstAttribute="top" secondItem="Z9G-lH-XLn" secondAttribute="bottom" constant="22" id="RgN-8G-pUq"/>
                             <constraint firstItem="LbC-YY-EdQ" firstAttribute="trailing" secondItem="Xdm-rs-VPa" secondAttribute="trailing" id="SSB-ZW-zNH"/>
                             <constraint firstItem="Z9G-lH-XLn" firstAttribute="width" secondItem="LbC-YY-EdQ" secondAttribute="width" multiplier="0.710667" id="Xvu-fE-q4w"/>
-                            <constraint firstItem="ohb-YF-P7f" firstAttribute="width" secondItem="LbC-YY-EdQ" secondAttribute="width" multiplier="0.67" id="o3e-wQ-AzV"/>
-                            <constraint firstItem="ohb-YF-P7f" firstAttribute="centerX" secondItem="loK-Bo-3sw" secondAttribute="centerX" id="zcP-xm-dNA"/>
+                            <constraint firstItem="IvD-dG-axp" firstAttribute="centerX" secondItem="loK-Bo-3sw" secondAttribute="centerX" id="f4M-x0-HZn"/>
+                            <constraint firstItem="IvD-dG-axp" firstAttribute="width" secondItem="LbC-YY-EdQ" secondAttribute="width" multiplier="0.67" id="hhs-CY-DYu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fO0-b6-Jl1"/>
+                    <connections>
+                        <outlet property="logInButton" destination="IvD-dG-axp" id="4JS-4Z-zRq"/>
+                        <outlet property="successLabel" destination="Z9G-lH-XLn" id="xg8-Fq-QeL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msL-F7-OTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512.8" y="-419.64017991004499"/>
+            <point key="canvasLocation" x="1460" y="-518"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="9Tt-vO-Aka">
@@ -436,6 +449,9 @@
             <point key="canvasLocation" x="1706" y="349"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="doQ-FT-tLg"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="basketball-park-1607855" width="3537" height="4421"/>
         <systemColor name="labelColor">

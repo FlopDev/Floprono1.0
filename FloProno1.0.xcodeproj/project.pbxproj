@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A60B828F28C7106A00BE1C28 /* SuccessRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B828E28C7106A00BE1C28 /* SuccessRegisterViewController.swift */; };
 		A62146F128C6825200CE36A2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62146F028C6825200CE36A2 /* LogInViewController.swift */; };
 		A62146F428C68F2D00CE36A2 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62146F328C68F2D00CE36A2 /* MainPageViewController.swift */; };
 		CBF6701223A4DC9F00B0F2A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6701123A4DC9F00B0F2A2 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A60B828E28C7106A00BE1C28 /* SuccessRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterViewController.swift; sourceTree = "<group>"; };
 		A62146F028C6825200CE36A2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A62146F328C68F2D00CE36A2 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		CBF6700E23A4DC9F00B0F2A2 /* FloProno1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloProno1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 				CBF6701523A4DC9F00B0F2A2 /* SignUpViewController.swift */,
 				A62146F028C6825200CE36A2 /* LogInViewController.swift */,
 				A62146F328C68F2D00CE36A2 /* MainPageViewController.swift */,
+				A60B828E28C7106A00BE1C28 /* SuccessRegisterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				A62146F428C68F2D00CE36A2 /* MainPageViewController.swift in Sources */,
 				A62146F128C6825200CE36A2 /* LogInViewController.swift in Sources */,
 				CBF6701623A4DC9F00B0F2A2 /* SignUpViewController.swift in Sources */,
+				A60B828F28C7106A00BE1C28 /* SuccessRegisterViewController.swift in Sources */,
 				CBF6701223A4DC9F00B0F2A2 /* AppDelegate.swift in Sources */,
 				CBF6701423A4DC9F00B0F2A2 /* SceneDelegate.swift in Sources */,
 			);

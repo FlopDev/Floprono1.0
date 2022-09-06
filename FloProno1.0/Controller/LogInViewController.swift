@@ -9,6 +9,7 @@
 import UIKit
 
 class LogInViewController: UIViewController {
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -24,10 +25,8 @@ class LogInViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
     }
     
-    
     @IBAction func signIn(_ sender: Any) {
     }
-    
     
     func setUpButtonsSkin() {
         signInButton.layer.cornerRadius = 20
