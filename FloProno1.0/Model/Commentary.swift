@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct Commentary {
+
+   var nameOfWriter = ""
+
+   var text = ""
+    
+    var liked = 0
+
+}

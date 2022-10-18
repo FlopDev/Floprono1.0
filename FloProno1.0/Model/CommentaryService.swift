@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+class CommentaryService {
+
+   static let shared = CommentaryService()
+ 
+   private init() {}
+
+   private(set) var commentaries: [Commentary] = []
+
+    func add(commentary: Commentary) {
+
+      commentaries.append(commentary)
+
+   }
+
+}

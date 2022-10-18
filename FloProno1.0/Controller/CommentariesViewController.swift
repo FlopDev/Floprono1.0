@@ -9,22 +9,97 @@
 import UIKit
 
 class CommentariesViewController: UIViewController {
+    
+    // MARK : Outlets
+    @IBOutlet weak var commentaryTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    static var cellIdentifier = "CommentaryCell"
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // MARK : Properties
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear(_:)), name: UIViewController.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear(_:)), name: UIViewController.keyboardWillHideNotification, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    /**
+     Alert with a textfield for the commentary
+     */
+    func showAlertWithTextField() {
+        let alertController = UIAlertController(title: "Add a Commentary", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
+            if let txtField = alertController.textFields?.first, let text = txtField.text {
+                // operations
+                print("Text==>" + text)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Tag"
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
-    */
+    
+    @objc func keyboardAppear(_ notification: Notification) {
+            guard let frame = notification.userInfo?[UIViewController.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+            let keyboardFrame = frame.cgRectValue
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardFrame.height
+            }
+        }
 
+    @objc func keyboardDisappear(_ notification: Notification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+
+    
+    // MARK : Actions
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        commentaryTextField.resignFirstResponder()
+    }
+    @IBAction func addCommentary(_ sender: Any) {
+    }
+    @IBAction func publish(_ sender: Any) {
+        if commentaryTextField.text == "" {
+            showAlertWithTextField()
+        } else {
+            
+            var commentary = Commentary()
+            commentary.nameOfWriter = "Me" // change with Username of the user
+            commentary.text = commentaryTextField.text!
+            CommentaryService.shared.add(commentary: commentary)
+            tableView.reloadData()
+        }
+    }
+    
+}
+
+extension CommentariesViewController: UITableViewDataSource, UITextFieldDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CommentaryService.shared.commentaries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CommentariesViewController.cellIdentifier, for: indexPath)
+        let commentary = CommentaryService.shared.commentaries[indexPath.row]
+        cell.textLabel?.text = commentary.nameOfWriter
+        cell.detailTextLabel?.text = commentary.text
+        
+        return cell
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

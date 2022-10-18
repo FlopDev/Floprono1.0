@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainPageViewController: UIViewController {
-
+    @IBOutlet weak var dateTextField: UILabel!
+    @IBOutlet weak var imageOfTheBet: UIImageView!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var trustFactorLabel: UILabel!
+    @IBOutlet weak var percentageBankrollLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentaryButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func didPressLikeButton(_ sender: UIButton) {
     }
-    */
-
+    @IBAction func didPressCommentaryButton(_ sender: UIButton) {
+    }
+    @IBAction func pressLogOutButton(_ sender: UIButton) {
+        
+        do {
+            try Auth.auth().signOut()
+            dismiss(animated: true, completion: nil)
+        } catch {
+            print("Can't deconnect user")
+        }
+       
+    }
 }
