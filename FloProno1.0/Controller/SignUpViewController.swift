@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class SignUpViewController: UIViewController {
     // MARK : Outlets
@@ -18,6 +20,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
+    
+    var database = Firestore.firestore()
     
     // MARK : Properties
     override func viewDidLoad() {
@@ -79,18 +83,56 @@ class SignUpViewController: UIViewController {
                     print(error.debugDescription)
                     self.presentAlert(title: "ERROR", message: "Incorrect password")
                 } else {
-                    self.performSegue(withIdentifier: "segueToWelcome", sender: self)
+                    let userInfo = self.createUserObject()
+                    self.performSegue(withIdentifier: "segueToWelcome", sender: userInfo)
                     
-                    let reference = Database.database().reference()
-                    let userID = Auth.auth().currentUser?.uid
+    
                     
-                    reference.child("users").child(userID!).setValue(["username": self.userNameTextField.text!])
+                    // saving to database the name and the adress of the user, to use it in the successVC
+                    self.saveUserInfo(name: self.userNameTextField.text!, email: self.emailTextField.text!)
                 }
             }
             
         } else {
             print("Error : Missing Username or password")
             self.presentAlert(title: "ERROR", message: "Add a valid e-mail or password")
+        }
+    }
+    
+    func saveUserInfo(name: String, email: String) {
+        let docRef = database.document("users/\(name)")
+        docRef.setData(["username": name, "email": email])
+        
+    }
+    
+    private func createUserObject() -> User {
+        let name = userNameTextField.text
+        let email = emailTextField.text
+
+        return User(name: name!, email: email!)
+    }
+
+    
+    private func setDocument() {
+           // [START set_document]
+           // Add a new document in collection "cities"
+        database.collection("users").document("\(userNameTextField.text!)").setData([
+            "username": "\(userNameTextField.text!)",
+            "email": "\(emailTextField.text!)"
+           ]) { err in
+               if let err = err {
+                   print("Error writing document: \(err)")
+               } else {
+                   print("Document successfully written!")
+               }
+           }
+           // [END set_document]
+       }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "segueToWelcome" {
+                let successVC = segue.destination as? SuccessRegisterViewController
+                let userInfo = sender as? User
+            successVC?.userInfo = userInfo
         }
     }
     

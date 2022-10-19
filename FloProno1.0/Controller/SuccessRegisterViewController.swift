@@ -9,11 +9,17 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class SuccessRegisterViewController: UIViewController {
     
     @IBOutlet weak var successLabel: UILabel!
     @IBOutlet weak var logInButton: UIButton!
+    
+    var userInfo: User?
+    
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +38,17 @@ class SuccessRegisterViewController: UIViewController {
     }
     
     func getNameOfUser() {
-        let reference = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-      //  reference.child("users").child(userID!).observeSingleEvent(of: .value) { snapchot in
-        //    let value = snapchot.value as? NSDictionary
-            
-         //   let username = value?("username") as? String ?? "no username"
-          //  return username
-        //}
+    
+        let docRef = db.collection("users").document("users")
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func setUpButtonsSkin() {
@@ -47,5 +56,7 @@ class SuccessRegisterViewController: UIViewController {
         logInButton.layer.borderWidth = 1
         logInButton.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         logInButton.backgroundColor?.withAlphaComponent(0.20)
+        
+        successLabel.text = "Great \(userInfo!.name), your registration has been validated! You can now log in."
     }
 }

@@ -14,6 +14,7 @@
 		A60B829828D058AC00BE1C28 /* CommentaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B829728D058AC00BE1C28 /* CommentaryService.swift */; };
 		A62146F128C6825200CE36A2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62146F028C6825200CE36A2 /* LogInViewController.swift */; };
 		A62146F428C68F2D00CE36A2 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62146F328C68F2D00CE36A2 /* MainPageViewController.swift */; };
+		A694519528FF7EC9009A0773 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A694519428FF7EC9009A0773 /* User.swift */; };
 		A6F596FC28DC79D600BAE20E /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = A6F596FB28DC79D600BAE20E /* FirebaseAppDistribution-Beta */; };
 		A6F596FE28DC79D600BAE20E /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = A6F596FD28DC79D600BAE20E /* FirebaseInAppMessaging-Beta */; };
 		A6F5970028DC79D600BAE20E /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = A6F596FF28DC79D600BAE20E /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -56,6 +57,7 @@
 		A60B829728D058AC00BE1C28 /* CommentaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryService.swift; sourceTree = "<group>"; };
 		A62146F028C6825200CE36A2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A62146F328C68F2D00CE36A2 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		A694519428FF7EC9009A0773 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CBF6700E23A4DC9F00B0F2A2 /* FloProno1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloProno1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF6701123A4DC9F00B0F2A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF6701323A4DC9F00B0F2A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				A60B829428D0589A00BE1C28 /* Commentary.swift */,
 				A60B829728D058AC00BE1C28 /* CommentaryService.swift */,
+				A694519428FF7EC9009A0773 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				A60B828F28C7106A00BE1C28 /* SuccessRegisterViewController.swift in Sources */,
 				A60B829828D058AC00BE1C28 /* CommentaryService.swift in Sources */,
 				CBF6701223A4DC9F00B0F2A2 /* AppDelegate.swift in Sources */,
+				A694519528FF7EC9009A0773 /* User.swift in Sources */,
 				CBF6701423A4DC9F00B0F2A2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

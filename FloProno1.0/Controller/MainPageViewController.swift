@@ -18,6 +18,8 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentaryButton: UIButton!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
