@@ -37,19 +37,6 @@ class SuccessRegisterViewController: UIViewController {
         }
     }
     
-    func getNameOfUser() {
-    
-        let docRef = db.collection("users").document("users")
-
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
     
     func setUpButtonsSkin() {
         logInButton.layer.cornerRadius = 20
@@ -57,6 +44,6 @@ class SuccessRegisterViewController: UIViewController {
         logInButton.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         logInButton.backgroundColor?.withAlphaComponent(0.20)
         
-        successLabel.text = "Great \(userInfo!.name), your registration has been validated! You can now log in."
+        successLabel.text = "Great \(userInfo!.username), your registration has been validated! You can now log in."
     }
 }

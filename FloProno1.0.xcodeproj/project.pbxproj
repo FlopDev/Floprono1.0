@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41D5EB0B6DFCCD1CB900158D /* Pods_FloProno1_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1397B1B0527637094E68993C /* Pods_FloProno1_0.framework */; };
 		A605BB9428DC3E58006C887B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A605BB9328DC3E58006C887B /* GoogleService-Info.plist */; };
 		A60B828F28C7106A00BE1C28 /* SuccessRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B828E28C7106A00BE1C28 /* SuccessRegisterViewController.swift */; };
 		A60B829228CFE9CE00BE1C28 /* CommentariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B829128CFE9CE00BE1C28 /* CommentariesViewController.swift */; };
@@ -50,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1397B1B0527637094E68993C /* Pods_FloProno1_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FloProno1_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34712B6F1FB36247B53B01BC /* Pods-FloProno1.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloProno1.0.release.xcconfig"; path = "Target Support Files/Pods-FloProno1.0/Pods-FloProno1.0.release.xcconfig"; sourceTree = "<group>"; };
+		A24B62DF2DDB4A6DC56F2113 /* Pods-FloProno1.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloProno1.0.debug.xcconfig"; path = "Target Support Files/Pods-FloProno1.0/Pods-FloProno1.0.debug.xcconfig"; sourceTree = "<group>"; };
 		A605BB9328DC3E58006C887B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A60B828E28C7106A00BE1C28 /* SuccessRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterViewController.swift; sourceTree = "<group>"; };
 		A60B829128CFE9CE00BE1C28 /* CommentariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentariesViewController.swift; sourceTree = "<group>"; };
@@ -99,12 +103,30 @@
 				A6F5972028DC79D600BAE20E /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				A6F5971028DC79D600BAE20E /* FirebaseFunctionsCombine-Community in Frameworks */,
 				A6F5970628DC79D600BAE20E /* FirebaseFirestore in Frameworks */,
+				41D5EB0B6DFCCD1CB900158D /* Pods_FloProno1_0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20A66901011BA3291433A225 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A24B62DF2DDB4A6DC56F2113 /* Pods-FloProno1.0.debug.xcconfig */,
+				34712B6F1FB36247B53B01BC /* Pods-FloProno1.0.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		31F14D28196DEDFEF927AAD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1397B1B0527637094E68993C /* Pods_FloProno1_0.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6C8D76028BF9F710086BD7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +173,8 @@
 			children = (
 				CBF6701023A4DC9F00B0F2A2 /* FloProno1.0 */,
 				CBF6700F23A4DC9F00B0F2A2 /* Products */,
+				20A66901011BA3291433A225 /* Pods */,
+				31F14D28196DEDFEF927AAD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBF6703823A4DCA900B0F2A2 /* Build configuration list for PBXNativeTarget "FloProno1.0" */;
 			buildPhases = (
+				A46A3D83B8E614DB53061DDF /* [CP] Check Pods Manifest.lock */,
 				CBF6700A23A4DC9F00B0F2A2 /* Sources */,
 				CBF6700B23A4DC9F00B0F2A2 /* Frameworks */,
 				CBF6700C23A4DC9F00B0F2A2 /* Resources */,
+				29795E0E8FDEF4AA430ADFB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +298,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29795E0E8FDEF4AA430ADFB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FloProno1.0/Pods-FloProno1.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FloProno1.0/Pods-FloProno1.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FloProno1.0/Pods-FloProno1.0-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A46A3D83B8E614DB53061DDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FloProno1.0-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CBF6700A23A4DC9F00B0F2A2 /* Sources */ = {
@@ -431,6 +499,7 @@
 		};
 		CBF6703923A4DCA900B0F2A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A24B62DF2DDB4A6DC56F2113 /* Pods-FloProno1.0.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -449,6 +518,7 @@
 		};
 		CBF6703A23A4DCA900B0F2A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34712B6F1FB36247B53B01BC /* Pods-FloProno1.0.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

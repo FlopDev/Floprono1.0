@@ -10,8 +10,16 @@ import Foundation
 
 struct User {
 
-   var name = ""
+   var username = ""
 
    var email = ""
+    
+    var isAdmin: Bool? = false {
+        
+        didSet {
+            isAdmin = isAdmin ?? false
+        }
+    }
+    
 
 }

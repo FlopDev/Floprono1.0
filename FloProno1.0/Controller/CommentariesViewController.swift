@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class CommentariesViewController: UIViewController {
     
     // MARK : Outlets
     @IBOutlet weak var commentaryTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
+    var userInfo: User?
     static var cellIdentifier = "CommentaryCell"
 
     // MARK : Properties
@@ -71,12 +75,15 @@ class CommentariesViewController: UIViewController {
         } else {
             
             var commentary = Commentary()
-            commentary.nameOfWriter = "Me" // change with Username of the user
+            commentary.nameOfWriter = "me" // Recuperer coté BDD le nom du User
+        
+            
             commentary.text = commentaryTextField.text!
             CommentaryService.shared.add(commentary: commentary)
             tableView.reloadData()
         }
     }
+
     
 }
 

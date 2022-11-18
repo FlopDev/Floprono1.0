@@ -11,8 +11,12 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Firebase
+import FirebaseCore
+import GoogleSignIn
 
 class SignUpViewController: UIViewController {
+    
     // MARK : Outlets
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -20,6 +24,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var signInFacebookButton: UIButton!
+    
+    @IBOutlet weak var googleSignIn: GIDSignInButton!
+    
+    
+    var userInfo: User?
     
     var database = Firestore.firestore()
     
@@ -28,6 +38,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //setUpButtonsSkin()
+        self.googleSignIn.backgroundColor = UIColor(patternImage: UIImage(named: "google.png")!)
         setUpTextFieldManager()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear(_:)), name: UIViewController.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear(_:)), name: UIViewController.keyboardWillHideNotification, object: nil)
@@ -85,11 +96,9 @@ class SignUpViewController: UIViewController {
                 } else {
                     let userInfo = self.createUserObject()
                     self.performSegue(withIdentifier: "segueToWelcome", sender: userInfo)
-                    
-    
-                    
                     // saving to database the name and the adress of the user, to use it in the successVC
-                    self.saveUserInfo(name: self.userNameTextField.text!, email: self.emailTextField.text!)
+                    self.saveUserInfo(uid:authRequest?.user.uid, name: self.userNameTextField.text!, email: self.emailTextField.text!, isAdmin: false)
+                    
                 }
             }
             
@@ -99,35 +108,21 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func saveUserInfo(name: String, email: String) {
-        let docRef = database.document("users/\(name)")
-        docRef.setData(["username": name, "email": email])
+    func saveUserInfo(uid: String?, name: String, email: String, isAdmin: Bool) {
+        let docRef = database.document("users/\(uid)")
+        docRef.setData(["username": name, "email": email, "isAdmin": isAdmin])
         
     }
     
     private func createUserObject() -> User {
         let name = userNameTextField.text
         let email = emailTextField.text
-
-        return User(name: name!, email: email!)
+        let isAdmin = false
+        
+        return User(username: name!, email: email!, isAdmin: isAdmin)
     }
 
     
-    private func setDocument() {
-           // [START set_document]
-           // Add a new document in collection "cities"
-        database.collection("users").document("\(userNameTextField.text!)").setData([
-            "username": "\(userNameTextField.text!)",
-            "email": "\(emailTextField.text!)"
-           ]) { err in
-               if let err = err {
-                   print("Error writing document: \(err)")
-               } else {
-                   print("Document successfully written!")
-               }
-           }
-           // [END set_document]
-       }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "segueToWelcome" {
                 let successVC = segue.destination as? SuccessRegisterViewController
@@ -143,6 +138,38 @@ class SignUpViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         // show the alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func signInGoogleDidPress(_ sender: Any) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+
+          if let error = error {
+            // ...
+            return
+          }
+
+          guard
+            let authentication = user?.authentication,
+            let idToken = authentication.idToken
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+
+          // ...
+        }
+    }
+    
+    
+    @IBAction func signInFacebookDidPress(_ sender: Any) {
     }
 }
 
